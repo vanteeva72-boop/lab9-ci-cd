@@ -21,3 +21,9 @@ class TestContactForm:
         assert page.is_visible(page.NAME_ERROR)
         assert page.is_visible(page.EMAIL_ERROR)
         assert not page.success_displayed()
+def test_positive_minimal_data(self, page):
+    """Тест только с обязательными полями"""
+    page.fill_name("Петр")
+    page.fill_email("petr@mail.ru")
+    page.submit()
+    assert page.success_displayed()
